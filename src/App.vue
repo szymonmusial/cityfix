@@ -7,13 +7,12 @@
 </template>
 
 <script lang="ts">
-import { useStore } from "vuex";
-import { DataType } from "@/store/modules/helpers/helpersDictionary";
+import { Load } from "@/composables/OwnLoadData/useLoadData";
+
 export default {
   name: "App",
   setup() {
-    const store = useStore();
-    store.dispatch("loadData", DataType.users);
+    Load.User();
   },
 };
 </script>
