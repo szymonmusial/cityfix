@@ -1,6 +1,7 @@
-import { ActionNameToDataType } from "@/dataType";
+import { ActionNameToDataType } from "@/store/modules/helpers/helpersDictionary";
+import { DataStatus, HelperStore } from "./helpersType";
 
-const users = {
+const helpers: HelperStore = {
   state: {
     loadedStatus: {
       users: null,
@@ -15,23 +16,27 @@ const users = {
     },
   },
   actions: {
-    loadData(context, actionName: string) {
-      const payload = {
+    loadData(context, actionName) {
+      const payload: DataStatus = {
         name: ActionNameToDataType[actionName],
         status: false,
       };
-      context
-        .dispatch(actionName)
-        .then(() => {
-          payload.status = true;
-          context.commit("setLoadedStatus", payload);
-        })
-        .catch(() => {
-          payload.status = false;
-          context.commit("setLoadedStatus", payload);
-        });
+
+      const loadedStatus: boolean = context.getters.isDataLoaded(payload.name);
+      if (!loadedStatus) {
+        context
+          .dispatch(actionName)
+          .then(() => {
+            payload.status = true;
+            context.commit("setLoadedStatus", payload);
+          })
+          .catch(() => {
+            payload.status = false;
+            context.commit("setLoadedStatus", payload);
+          });
+      }
     },
   },
 };
 
-export default users;
+export default helpers;

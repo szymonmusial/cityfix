@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { useStore } from "vuex";
-import { DataType } from "./dataType";
+import { DataType } from "@/store/modules/helpers/helpersDictionary";
 export default {
   name: "App",
   setup() {
