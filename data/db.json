@@ -2,14 +2,14 @@
   "users": [
     {
       "id": 0,
-      "firstName": "Szymon",
-      "surName": "Musiał",
+      "firstname": "Szymon",
+      "surname": "Musiał",
       "role": "reporting"
     },
     {
       "id": 1,
-      "firstName": "Kamil",
-      "surName": "Sobień",
+      "firstname": "Kamil",
+      "surname": "Sobień",
       "role": "reporting"
     }
   ]

@@ -1,21 +1,19 @@
 <template>
   <v-app>
     <v-main>
-      <router-view />
+      <div>test</div>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
+import { useStore } from "vuex";
+import { DataType } from "./dataType";
+export default {
   name: "App",
-
-  data() {
-    return {
-      //
-    };
+  setup() {
+    const store = useStore();
+    store.dispatch("loadData", DataType.users);
   },
-});
+};
 </script>
