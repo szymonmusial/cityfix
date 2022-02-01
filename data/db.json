@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "firstName": "Szymon",
+      "surName": "Musiał",
+      "role": "reporting"
+    },
+    {
+      "id": 1,
+      "firstName": "Kamil",
+      "surName": "Sobień",
+      "role": "reporting"
+    }
+  ]
+}
