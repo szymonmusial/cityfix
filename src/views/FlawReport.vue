@@ -15,4 +15,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.flaw-report {
+  height: calc(100vh);
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+</style>
