@@ -10,6 +10,7 @@
           <th class="text-left">Rodzaj Uszkodzeń</th>
           <th class="text-left">Lokalizacja GPS</th>
           <th class="text-left">Komentarz</th>
+          <th class="text-center">Edytuj</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,13 @@
           <td>{{ item.damageType }}</td>
           <td>{{ item.gpsLocation }}</td>
           <td>{{ item.comment }}</td>
+          <td class="text-center">
+            <drop-down-select
+              :options="options"
+              label="Wybierz edycje"
+              @onSelect="(value) => updateFlawStatus(value, item.id)"
+            />
+          </td>
         </tr>
       </tbody>
     </template>
@@ -29,16 +37,38 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed } from "@vue/runtime-core";
+import { computed, ref } from "@vue/runtime-core";
+import DropDownSelect from "../atoms/DropDownSelect.vue";
 export default {
+  components: { DropDownSelect },
   name: "FlawTable",
   setup() {
     const store = useStore();
+    const updateFlawStatus = (status, id) => {
+      console.log(status);
+      console.log(id);
+    };
     const flawReports = computed(() => store.getters.getFlawReports);
-
-    return { flawReports };
+    const options = ref([
+      { name: "Odrzuć Zgłoszenie", value: "Odrzuc" },
+      { name: "Zakończ Zgłoszenie", value: "Zakoncz" },
+    ]);
+    return { flawReports, options, updateFlawStatus };
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+thead th {
+  background-color: #25424c !important;
+  color: #fff;
+}
+
+tr:nth-child(odd) {
+  background-color: #dff2f9;
+}
+
+tr:nth-child(even) {
+  background-color: #e7ecff;
+}
+</style>
