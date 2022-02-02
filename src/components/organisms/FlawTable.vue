@@ -1,5 +1,5 @@
 <template>
-  <v-table>
+  <v-table fixed-header>
     <template v-slot:default>
       <thead>
         <tr>
@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in desserts" :key="item.name">
+        <tr v-for="item in flawReports" :key="item.name">
           <td>{{ item.status }}</td>
           <td>{{ item.createTime }}</td>
           <td>{{ item.person }}</td>
@@ -28,23 +28,15 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
 export default {
   name: "FlawTable",
   setup() {
-    const desserts = ref([
-      {
-        status: "Zgłoszone",
-        createTime: "02-02-2020: 10:30",
-        person: "Szymon Musiał",
-        infrastructureElement: "Lampa",
-        damageType: "Wybuch",
-        gpsLocation: "51.2948800° 18.1554700°",
-        comment: "Wybuchła zarówka lampy",
-      },
-    ]);
+    const store = useStore();
+    const flawReports = computed(() => store.getters.getFlawReports);
 
-    return { desserts };
+    return { flawReports };
   },
 };
 </script>

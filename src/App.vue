@@ -12,6 +12,7 @@ import { Load } from "@/composables/OwnLoadData/useLoadData";
 export default {
   name: "App",
   setup() {
+    // add error hadling and loader/spinner
     Load.User();
     Load.FlawReports();
   },
