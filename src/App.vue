@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-main>
-      <div>test</div>
+      <v-btn color="primary">dd</v-btn>
+      <router-view app />
     </v-main>
   </v-app>
 </template>
