@@ -1,6 +1,6 @@
 <template>
   <div class="flaw-map flaw-map--show" v-bind:class="mapIsVisable ? 'flaw-map--show' : 'flaw-map--hide'">
-    <hide-map-button @hideMap="hideMap" :mapIsVisable="mapIsVisable" @showMap="showMap" />
+    <hide-map-button @showHideMap="showHideMap" :mapIsVisable="mapIsVisable" />
     <flaw-leaf-map class="flaw-leaf-map" />
   </div>
 </template>
@@ -14,9 +14,9 @@ export default {
   name: "FlawMap",
   setup() {
     const mapIsVisable = ref(true);
-    const hideMap = () => (mapIsVisable.value = false);
-    const showMap = () => (mapIsVisable.value = true);
-    return { hideMap, showMap, mapIsVisable };
+    const showHideMap = () => (mapIsVisable.value = !mapIsVisable.value);
+
+    return { showHideMap, mapIsVisable };
   },
 };
 </script>

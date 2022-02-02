@@ -6,7 +6,7 @@
       content="Schowaj mape"
       transition="slide-x-transition"
       class="hide-map__button"
-      @click="$emit('hideMap')"
+      @click="$emit('showHideMap')"
       v-if="mapIsVisable"
     >
       <v-hover v-slot="{ props }" v-model="hover">
@@ -20,7 +20,7 @@
       content="Pokaż mape"
       transition="slide-x-transition"
       class="hide-map__button"
-      @click="$emit('showMap')"
+      @click="$emit('showHideMap')"
       v-else
     >
       <v-hover v-slot="{ props }" v-model="hover">
