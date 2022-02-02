@@ -12,5 +12,17 @@
       "surname": "Sobień",
       "role": "service"
     }
+  ],
+  "flawReports": [
+    {
+      "id": 0,
+      "status": "Zgłoszone",
+      "createTime": "02-02-2020: 10:30",
+      "person": "Szymon Musiał",
+      "infrastructureElement": "Lampa",
+      "damageType": "Wybuch",
+      "gpsLocation": "51.2948800° 18.1554700°",
+      "comment": "Wybuchła zarówka lampy"
+    }
   ]
 }

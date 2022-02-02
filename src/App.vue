@@ -1,8 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-btn color="primary">dd</v-btn>
-      <router-view app />
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -14,6 +13,7 @@ export default {
   name: "App",
   setup() {
     Load.User();
+    Load.FlawReports();
   },
 };
 </script>

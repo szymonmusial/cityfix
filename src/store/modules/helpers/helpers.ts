@@ -5,6 +5,7 @@ const helpers: HelperStore = {
   state: {
     loadedStatus: {
       users: null,
+      flawReports: null,
     },
   },
   getters: {

@@ -3,14 +3,24 @@
     <template v-slot:default>
       <thead>
         <tr>
-          <th class="text-left">Name</th>
-          <th class="text-left">Calories</th>
+          <th class="text-left">Status Zgłoszenia</th>
+          <th class="text-left">Data Utworzenia</th>
+          <th class="text-left">Osoba</th>
+          <th class="text-left">Element Infrastruktury</th>
+          <th class="text-left">Rodzaj Uszkodzeń</th>
+          <th class="text-left">Lokalizacja GPS</th>
+          <th class="text-left">Komentarz</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="item in desserts" :key="item.name">
-          <td>{{ item.name }}</td>
-          <td>{{ item.calories }}</td>
+          <td>{{ item.status }}</td>
+          <td>{{ item.createTime }}</td>
+          <td>{{ item.person }}</td>
+          <td>{{ item.infrastructureElement }}</td>
+          <td>{{ item.damageType }}</td>
+          <td>{{ item.gpsLocation }}</td>
+          <td>{{ item.comment }}</td>
         </tr>
       </tbody>
     </template>
@@ -21,120 +31,20 @@
 import { ref } from "@vue/reactivity";
 export default {
   name: "FlawTable",
-
-  data() {
-    return {
-      headers: [
-        {
-          text: "Dessert (100g serving)",
-          align: "start",
-          value: "name",
-        },
-        { text: "Calories", value: "calories" },
-        { text: "Fat (g)", value: "fat" },
-        { text: "Carbs (g)", value: "carbs" },
-        { text: "Protein (g)", value: "protein" },
-        { text: "Iron (%)", value: "iron" },
-      ],
-    };
-  },
   setup() {
-    const headers2 = ref([
-      {
-        text: "Dessert (100g serving)",
-        align: "start",
-        value: "name",
-      },
-      { text: "Calories", value: "calories" },
-      { text: "Fat (g)", value: "fat" },
-      { text: "Carbs (g)", value: "carbs" },
-      { text: "Protein (g)", value: "protein" },
-      { text: "Iron (%)", value: "iron" },
-    ]);
     const desserts = ref([
       {
-        name: "Frozen Yogurt",
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        iron: "1%",
-      },
-      {
-        name: "Ice cream sandwich",
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3,
-        iron: "1%",
-      },
-      {
-        name: "Eclair",
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        iron: "7%",
-      },
-      {
-        name: "Cupcake",
-        calories: 305,
-        fat: 3.7,
-        carbs: 67,
-        protein: 4.3,
-        iron: "8%",
-      },
-      {
-        name: "Gingerbread",
-        calories: 356,
-        fat: 16.0,
-        carbs: 49,
-        protein: 3.9,
-        iron: "16%",
-      },
-      {
-        name: "Jelly bean",
-        calories: 375,
-        fat: 0.0,
-        carbs: 94,
-        protein: 0.0,
-        iron: "0%",
-      },
-      {
-        name: "Lollipop",
-        calories: 392,
-        fat: 0.2,
-        carbs: 98,
-        protein: 0,
-        iron: "2%",
-      },
-      {
-        name: "Honeycomb",
-        calories: 408,
-        fat: 3.2,
-        carbs: 87,
-        protein: 6.5,
-        iron: "45%",
-      },
-      {
-        name: "Donut",
-        calories: 452,
-        fat: 25.0,
-        carbs: 51,
-        protein: 4.9,
-        iron: "22%",
-      },
-      {
-        name: "KitKat",
-        calories: 518,
-        fat: 26.0,
-        carbs: 65,
-        protein: 7,
-        iron: "6%",
+        status: "Zgłoszone",
+        createTime: "02-02-2020: 10:30",
+        person: "Szymon Musiał",
+        infrastructureElement: "Lampa",
+        damageType: "Wybuch",
+        gpsLocation: "51.2948800° 18.1554700°",
+        comment: "Wybuchła zarówka lampy",
       },
     ]);
 
-    return { headers2, desserts };
+    return { desserts };
   },
 };
 </script>
