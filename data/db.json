@@ -22,7 +22,9 @@
       "infrastructureElement": "Lampa Drogowa",
       "damageType": "Wybuch",
       "gpsLocation": "51.2948800° 18.1554700°",
-      "comment": "Wybuchła zarówka lampy"
+      "comment": "Wybuchła zarówka lampy",
+      "lat": 51.29888,
+      "lang": 18.17547
     },
     {
       "id": 1,
@@ -32,7 +34,9 @@
       "infrastructureElement": "Lampa Uliczna",
       "damageType": "Wybuch",
       "gpsLocation": "51.2948800° 18.1554700°",
-      "comment": "Wybuchła zarówka lampy"
+      "comment": "Wybuchła zarówka lampy",
+      "lat": 51.29488,
+      "lang": 18.15547
     },
     {
       "id": 1,
@@ -42,7 +46,9 @@
       "infrastructureElement": "Lampa nad Przejściem",
       "damageType": "Wybuch",
       "gpsLocation": "51.2948800° 18.1554700°",
-      "comment": "Wybuchła zarówka lampy"
+      "comment": "Wybuchła zarówka lampy",
+      "lat": 51.29088,
+      "lang": 18.15547
     }
   ]
 }

@@ -7,6 +7,8 @@ export type FlawReport = {
   gpsLocation: string;
   comment: string;
   id: number | null;
+  lat: number;
+  lang: 18.15547;
 };
 
 export type FlawReports = Array<FlawReport>;

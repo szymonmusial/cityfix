@@ -9,29 +9,38 @@
       @move="log('move')"
     >
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></l-tile-layer>
-      <l-control-layers />
-      <l-marker :lat-lng="[51.29488, 18.15547]" draggable @moveend="log('moveend')">
-        <l-tooltip> lol </l-tooltip>
-      </l-marker>
-
-      <l-marker :lat-lng="[50, 50]" draggable @moveend="log('moveend')">
+      <l-marker
+        v-for="item in flawReports"
+        :key="item.id"
+        :lat-lng="[item.lat, item.lang]"
+        :draggable="pinsAreDraggable"
+        @moveend="log('moveend')"
+        class="l-marker"
+      >
+        <l-tooltip class="l-tooltip"> {{ item.infrastructureElement }} </l-tooltip>
         <l-popup> lol </l-popup>
       </l-marker>
     </l-map>
   </div>
 </template>
-<script>
-import { LMap, LTileLayer, LMarker, LControlLayers, LTooltip, LPopup } from "@vue-leaflet/vue-leaflet";
+<script lang="ts">
+import { LMap, LTileLayer, LMarker, LTooltip, LPopup } from "@vue-leaflet/vue-leaflet";
 import "leaflet/dist/leaflet.css";
 import { ref } from "@vue/reactivity";
+import { FlawReports } from "@/store/modules/flawReports/flawReportsType";
+import { PropType } from "@vue/runtime-core";
+
 export default {
   components: {
     LMap,
     LTileLayer,
     LMarker,
-    LControlLayers,
     LTooltip,
     LPopup,
+  },
+  props: {
+    pinsAreDraggable: Boolean,
+    flawReports: Object as PropType<FlawReports>,
   },
   setup() {
     const zoom = ref(14);
@@ -53,5 +62,28 @@ export default {
 /* hide Map controls */
 .leaflet-control-container {
   display: none !important;
+}
+
+.l-tooltip {
+  background-color: rgb(251, 119, 13);
+  inset: auto;
+  display: block;
+  padding: 8px 12px !important;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+}
+
+.leaflet-tooltip {
+  padding: 0px;
+  border: 0px !important;
+  opacity: 1 !important;
+  border-radius: 12px;
+}
+
+.leaflet-tooltip-left:before {
+  border-left-color: rgb(251, 119, 13);
 }
 </style>
