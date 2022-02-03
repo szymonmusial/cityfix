@@ -28,7 +28,7 @@
     },
     {
       "id": 1,
-      "status": "Zakoncz",
+      "status": "Odrzuc",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa Uliczna",

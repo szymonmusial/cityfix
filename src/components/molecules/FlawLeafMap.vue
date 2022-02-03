@@ -19,7 +19,9 @@
         </l-tooltip>
         <l-popup>
           <a class="leaflet-popup-close" @click="closePopup">×</a>
-          lol
+          <p class="popup-field"><span class="popup-filed-name">Nazwa: </span>{{ item.infrastructureElement }}</p>
+          <p class="popup-field"><span class="popup-filed-name">Uszkodzenie: </span>{{ item.damageType }}</p>
+          <p class="popup-field"><span class="popup-filed-name">Status: </span>{{ item.status }}</p>
         </l-popup>
       </l-marker>
     </l-map>
@@ -56,7 +58,7 @@ export default {
       // dont'look at this (*_*)
       document.querySelector(".leaflet-popup-close-button").click();
     };
-    const changeSelectedHoverPin = (id) => {
+    const changeSelectedHoverPin = (id: number | null) => {
       if (!isOpenPopup.value) {
         emit("hoverPin", id);
       }
@@ -79,7 +81,7 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 4px 4px 0 0;
+  padding: 6px 6px 0 0;
   border: none;
   text-align: center;
   width: 18px;
@@ -89,6 +91,14 @@ export default {
   text-decoration: none;
   font-weight: bold;
   background: transparent;
+  color: #25424c;
+}
+
+.popup-field {
+  font-size: 14px;
+}
+.popup-filed-name {
+  font-weight: 600;
 }
 </style>
 
