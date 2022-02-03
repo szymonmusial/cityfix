@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in flawReports" :key="item.name">
+        <tr v-for="item in flawReports" :key="item.name" :class="isHoveredItem(item.id) ? 'hovered' : ''">
           <td>{{ item.status }}</td>
           <td>{{ item.createTime }}</td>
           <td>{{ item.person }}</td>
@@ -38,7 +38,7 @@
   </v-table>
 </template>
 
-<script>
+<script lang="ts">
 import { useStore } from "vuex";
 import { computed, ref } from "@vue/runtime-core";
 import DropDownSelect from "../atoms/DropDownSelect.vue";
@@ -46,20 +46,30 @@ import TextToColorIcon from "../atoms/TextToColorIcon.vue";
 export default {
   components: { DropDownSelect, TextToColorIcon },
   name: "FlawTable",
-  setup() {
+  props: { hoveredItemId: Number },
+  setup(props) {
     const store = useStore();
     const updateFlawStatus = (status, id) => store.dispatch("editStatusFlawReport", { status, id });
     const flawReports = computed(() => store.getters.getFlawReports);
+
+    const isHoveredItem = (id: number) => props.hoveredItemId == id;
+
     const options = ref([
       { name: "Odrzuć Zgłoszenie", value: "Odrzuc" },
       { name: "Zakończ Zgłoszenie", value: "Zakoncz" },
     ]);
-    return { flawReports, options, updateFlawStatus };
+    return { flawReports, options, updateFlawStatus, isHoveredItem };
   },
 };
 </script>
 
 <style scoped>
+.hovered,
+tr:hover {
+  background: #ffebdb !important;
+  opacity: 1 !important;
+}
+
 thead th {
   background-color: #25424c !important;
   color: #fff;

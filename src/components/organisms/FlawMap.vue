@@ -1,7 +1,12 @@
 <template>
   <div class="flaw-map flaw-map--show" v-bind:class="mapIsVisable ? 'flaw-map--show' : 'flaw-map--hide'">
     <hide-map-button @showHideMap="showHideMap" :mapIsVisable="mapIsVisable" />
-    <flaw-leaf-map class="flaw-leaf-map" :pinsAreDraggable="pinsAreDraggable" :flawReports="flawReports" />
+    <flaw-leaf-map
+      class="flaw-leaf-map"
+      :pinsAreDraggable="pinsAreDraggable"
+      :flawReports="flawReports"
+      @hoverPin="(id) => $emit('hoverPin', id)"
+    />
   </div>
 </template>
 

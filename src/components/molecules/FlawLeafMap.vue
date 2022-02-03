@@ -1,13 +1,6 @@
 <template>
   <div class="flaw-leaf-map">
-    <l-map
-      v-model="zoom"
-      v-model:zoom="zoom"
-      :minZoom="10"
-      :maxZoom="18"
-      :center="[51.29488, 18.15547]"
-      @move="log('move')"
-    >
+    <l-map v-model="zoom" v-model:zoom="zoom" :minZoom="10" :maxZoom="18" :center="[51.29488, 18.15547]">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></l-tile-layer>
       <l-marker
         v-for="item in flawReports"
@@ -17,9 +10,14 @@
         class="l-marker"
         :style="PinIconColor"
         :icon="createIconPin(item.infrastructureElement)"
+        @mouseout="changeSelectedHoverPin(null)"
+        @mouseover="changeSelectedHoverPin(item.id)"
+        @click="() => (isOpenPopup = true)"
       >
-        <l-tooltip class="l-tooltip"> {{ item.infrastructureElement }} </l-tooltip>
-        <l-popup> lol </l-popup>
+        <l-tooltip class="l-tooltip">
+          {{ item.infrastructureElement }}
+        </l-tooltip>
+        <l-popup @click="() => (isOpenPopup = false)"> lol </l-popup>
       </l-marker>
     </l-map>
   </div>
@@ -45,14 +43,20 @@ export default {
     pinsAreDraggable: Boolean,
     flawReports: Object as PropType<FlawReports>,
   },
-  setup() {
+  setup(props, { emit }) {
     const zoom = ref(14);
-
+    const isOpenPopup = ref(false);
     const { createIcon } = useLeafMapIcon();
+
+    const changeSelectedHoverPin = (id) => {
+      if (!isOpenPopup.value) {
+        emit("hoverPin", id);
+      }
+    };
 
     const createIconPin = (text) => createIcon(LeafMapIcon.mdiPin, true, text);
 
-    return { zoom, createIconPin };
+    return { zoom, createIconPin, isOpenPopup, changeSelectedHoverPin };
   },
 };
 </script>
