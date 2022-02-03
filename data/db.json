@@ -28,7 +28,7 @@
     },
     {
       "id": 1,
-      "status": "Zgłoszone",
+      "status": "Zakoncz",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa Uliczna",
@@ -39,8 +39,8 @@
       "lang": 18.15547
     },
     {
-      "id": 1,
-      "status": "Zgłoszone",
+      "id": 2,
+      "status": "Zakoncz",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa nad Przejściem",
@@ -49,6 +49,18 @@
       "comment": "Wybuchła zarówka lampy",
       "lat": 51.29088,
       "lang": 18.15547
+    },
+    {
+      "id": 3,
+      "status": "Zakoncz",
+      "createTime": "02-02-2020: 10:30",
+      "person": "Szymon Musiał",
+      "infrastructureElement": "Lampa nad Przejściem",
+      "damageType": "Wybuch",
+      "gpsLocation": "51.2948800° 18.1554700°",
+      "comment": "Wybuchła Lampa ale oprócz zarówki",
+      "lat": 51.29088,
+      "lang": 18.15947
     }
   ]
 }
