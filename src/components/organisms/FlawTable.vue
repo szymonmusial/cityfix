@@ -44,10 +44,7 @@ export default {
   name: "FlawTable",
   setup() {
     const store = useStore();
-    const updateFlawStatus = (status, id) => {
-      console.log(status);
-      console.log(id);
-    };
+    const updateFlawStatus = (status, id) => store.dispatch("editStatusFlawReport", { status, id });
     const flawReports = computed(() => store.getters.getFlawReports);
     const options = ref([
       { name: "Odrzuć Zgłoszenie", value: "Odrzuc" },

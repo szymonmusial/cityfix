@@ -8,7 +8,7 @@ export type FlawReport = {
   comment: string;
   id: number | null;
   lat: number;
-  lang: 18.15547;
+  lang: number;
 };
 
 export type FlawReports = Array<FlawReport>;
@@ -24,8 +24,10 @@ export type FlawReportsStore = {
   };
   mutations: {
     setFlawReports(state: FlawReportsSate, flawReports: FlawReports): void;
+    editStatusFlawReport(state: FlawReportsSate, { status, id }: { status: string; id: number }): void;
   };
   actions: {
     setFlawReports(context: any): Promise<void>;
+    editStatusFlawReport(context: any, { status, id }: { status: string; id: number }): Promise<void>;
   };
 };
