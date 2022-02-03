@@ -1,14 +1,16 @@
 <template>
   <div class="flaw-report-map">
+    <report-app-bar />
     <flaw-map :fullScreen="true" />
   </div>
 </template>
 
 <script lang="ts">
 import FlawMap from "@/components/organisms/FlawMap.vue";
+import ReportAppBar from "@/components/organisms/ReportAppBar.vue";
 
 export default {
-  components: { FlawMap },
+  components: { FlawMap, ReportAppBar },
   name: "FlawService",
 };
 </script>
