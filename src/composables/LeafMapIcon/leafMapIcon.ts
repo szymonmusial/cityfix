@@ -33,7 +33,7 @@ const useLeafMapIcon = () => {
     });
   };
 
-  return { createIcon };
+  return { createIcon, stringToColour, iconStucture };
 };
 
 export default useLeafMapIcon;

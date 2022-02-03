@@ -18,7 +18,10 @@
           <td>{{ item.status }}</td>
           <td>{{ item.createTime }}</td>
           <td>{{ item.person }}</td>
-          <td>{{ item.infrastructureElement }}</td>
+          <td class="infrastructure-element">
+            {{ item.infrastructureElement }}
+            <TextToColorIcon :text="item.infrastructureElement" />
+          </td>
           <td>{{ item.damageType }}</td>
           <td>{{ item.gpsLocation }}</td>
           <td>{{ item.comment }}</td>
@@ -39,8 +42,9 @@
 import { useStore } from "vuex";
 import { computed, ref } from "@vue/runtime-core";
 import DropDownSelect from "../atoms/DropDownSelect.vue";
+import TextToColorIcon from "../atoms/TextToColorIcon.vue";
 export default {
-  components: { DropDownSelect },
+  components: { DropDownSelect, TextToColorIcon },
   name: "FlawTable",
   setup() {
     const store = useStore();
@@ -61,11 +65,23 @@ thead th {
   color: #fff;
 }
 
+td {
+  min-height: 72px !important;
+}
+
 tr:nth-child(odd) {
   background-color: #dff2f9;
 }
 
 tr:nth-child(even) {
   background-color: #e7ecff;
+}
+
+.infrastructure-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 </style>
