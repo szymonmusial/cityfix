@@ -1,12 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import FlawService from "@/views/FlawService.vue";
-import FlawReport from "@/views/FlawReport.vue";
-
+import FlawReportMap from "@/views/FlawReportMap.vue";
+import FlawReportTable from "@/views/FlawReportTable.vue";
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/zglaszanie",
-    name: "FlawReport",
-    component: FlawReport,
+    path: "/zglaszanie/mapa",
+    name: "FlawReportMap",
+    component: FlawReportMap,
+  },
+  {
+    path: "/zglaszanie/tabela",
+    name: "FlawReportTable",
+    component: FlawReportTable,
   },
   {
     path: "/",

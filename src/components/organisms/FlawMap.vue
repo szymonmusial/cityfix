@@ -1,6 +1,9 @@
 <template>
-  <div class="flaw-map flaw-map--show" v-bind:class="mapIsVisable ? 'flaw-map--show' : 'flaw-map--hide'">
-    <hide-map-button @showHideMap="showHideMap" :mapIsVisable="mapIsVisable" />
+  <div
+    class="flaw-map"
+    v-bind:class="[mapIsVisable ? 'flaw-map--show' : 'flaw-map--hide', fullScreen ? 'flaw-leaf-map--full-screen' : '']"
+  >
+    <hide-map-button @showHideMap="showHideMap" :mapIsVisable="mapIsVisable" v-if="!fullScreen" />
     <flaw-leaf-map
       class="flaw-leaf-map"
       :pinsAreDraggable="pinsAreDraggable"
@@ -20,6 +23,9 @@ import { FlawReports } from "@/store/modules/flawReports/flawReportsType";
 export default {
   components: { FlawLeafMap, HideMapButton },
   name: "FlawMap",
+  props: {
+    fullScreen: Boolean,
+  },
   setup() {
     const store = useStore();
     const mapIsVisable = ref(true);
@@ -47,11 +53,26 @@ export default {
   bottom: 0;
 }
 
+/*
 .flaw-map--hide {
   bottom: calc(-60vh + 24px);
+}
+*/
+
+.flaw-map--hide {
+  bottom: calc(24px);
+  transform: translate(0, +100%);
 }
 
 .flaw-leaf-map {
   border-top: 3px solid #25424c;
+}
+
+.flaw-leaf-map--full-screen {
+  height: 100vh !important;
+  top: 0px;
+}
+.flaw-leaf-map--full-screen .flaw-leaf-map {
+  border: none !important;
 }
 </style>

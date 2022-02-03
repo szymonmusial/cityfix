@@ -16,7 +16,7 @@
   "flawReports": [
     {
       "id": 0,
-      "status": "Odrzuc",
+      "status": "Zakoncz",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa Drogowa",
