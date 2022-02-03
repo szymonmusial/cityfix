@@ -10,7 +10,7 @@
           <th class="text-left">Rodzaj Uszkodzeń</th>
           <th class="text-left">Lokalizacja GPS</th>
           <th class="text-left">Komentarz</th>
-          <th class="text-center">Edytuj</th>
+          <th class="text-center" v-if="canEditStatus()">Edytuj</th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +25,7 @@
           <td>{{ item.damageType }}</td>
           <td>{{ item.gpsLocation }}</td>
           <td>{{ item.comment }}</td>
-          <td class="text-center">
+          <td class="text-center" v-if="canEditStatus()">
             <drop-down-select
               :options="options"
               label="Wybierz edycje"
@@ -43,6 +43,8 @@ import { useStore } from "vuex";
 import { computed, ref } from "@vue/runtime-core";
 import DropDownSelect from "../atoms/DropDownSelect.vue";
 import TextToColorIcon from "../atoms/TextToColorIcon.vue";
+import { canEditStatus } from "@/infrastructure/permission/usePermission";
+
 export default {
   components: { DropDownSelect, TextToColorIcon },
   name: "FlawTable",
@@ -58,7 +60,7 @@ export default {
       { name: "Odrzuć Zgłoszenie", value: "Odrzuc" },
       { name: "Zakończ Zgłoszenie", value: "Zakoncz" },
     ]);
-    return { flawReports, options, updateFlawStatus, isHoveredItem };
+    return { flawReports, options, updateFlawStatus, isHoveredItem, canEditStatus };
   },
 };
 </script>
