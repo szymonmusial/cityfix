@@ -17,7 +17,7 @@
         @moveend="log('moveend')"
         class="l-marker"
         :style="PinIconColor"
-        :icon="createIcon('mdi-pin', true, item.infrastructureElement)"
+        :icon="createIcon(toString, true, item.infrastructureElement)"
       >
         <l-tooltip class="l-tooltip"> {{ item.infrastructureElement }} </l-tooltip>
         <l-popup> lol </l-popup>
@@ -33,6 +33,8 @@ import { ref } from "@vue/reactivity";
 import { FlawReports } from "@/store/modules/flawReports/flawReportsType";
 import { PropType } from "@vue/runtime-core";
 import useLeafMapIcon from "@/composables/LeafMapIcon/leafMapIcon";
+import { LeafMapIcon } from "@/composables/LeafMapIcon/leafMapIconDictionary";
+import { computed } from "vue";
 
 export default {
   components: {
@@ -55,13 +57,15 @@ export default {
       fontSize: "13px",
     };
 
+    const toString = computed<string>(() => LeafMapIcon.mdiPin);
+
     const pinIcon = L.divIcon({
       className: "icon-pin",
       html: '<span class="mdi mdi-pin"></span>',
       iconSize: [36, 41],
     });
 
-    return { zoom, log, pinIcon, PinIconColor, createIcon };
+    return { zoom, log, pinIcon, PinIconColor, toString, createIcon };
   },
 };
 </script>
