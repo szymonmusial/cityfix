@@ -1,5 +1,5 @@
 <template>
-  <div class="flaw-report">
+  <div class="flaw-service">
     <flaw-table :hoveredItemId="hoverPinId" />
     <flaw-map @hoverPin="(id) => (hoverPinId = id)" />
   </div>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style>
-.flaw-report {
+.flaw-service {
   height: calc(100vh);
   overflow: hidden;
   width: 100%;

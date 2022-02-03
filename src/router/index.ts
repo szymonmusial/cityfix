@@ -4,14 +4,14 @@ import FlawReport from "@/views/FlawReport.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/obsluga",
-    name: "FlawService",
-    component: FlawService,
+    path: "/zglaszanie",
+    name: "FlawReport",
+    component: FlawReport,
   },
   {
     path: "/",
-    name: "FlawReport",
-    component: FlawReport,
+    name: "FlawService",
+    component: FlawService,
   },
 ];
 
