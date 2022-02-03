@@ -17,7 +17,10 @@
         <l-tooltip class="l-tooltip">
           {{ item.infrastructureElement }}
         </l-tooltip>
-        <l-popup @click="() => (isOpenPopup = false)"> lol </l-popup>
+        <l-popup>
+          <a class="leaflet-popup-close" @click="closePopup">×</a>
+          lol
+        </l-popup>
       </l-marker>
     </l-map>
   </div>
@@ -47,7 +50,12 @@ export default {
     const zoom = ref(14);
     const isOpenPopup = ref(false);
     const { createIcon } = useLeafMapIcon();
-
+    const closePopup = () => {
+      isOpenPopup.value = false;
+      changeSelectedHoverPin(null);
+      // dont'look at this (*_*)
+      document.querySelector(".leaflet-popup-close-button").click();
+    };
     const changeSelectedHoverPin = (id) => {
       if (!isOpenPopup.value) {
         emit("hoverPin", id);
@@ -56,7 +64,7 @@ export default {
 
     const createIconPin = (text) => createIcon(LeafMapIcon.mdiPin, true, text);
 
-    return { zoom, createIconPin, isOpenPopup, changeSelectedHoverPin };
+    return { zoom, createIconPin, isOpenPopup, changeSelectedHoverPin, closePopup };
   },
 };
 </script>
@@ -66,12 +74,33 @@ export default {
   width: 100%;
   height: 100%;
 }
+
+.leaflet-popup-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 4px 0 0;
+  border: none;
+  text-align: center;
+  width: 18px;
+  height: 14px;
+  font: 16px/14px Tahoma, Verdana, sans-serif;
+  color: #c3c3c3;
+  text-decoration: none;
+  font-weight: bold;
+  background: transparent;
+}
 </style>
 
 <style>
 /* hide Map controls */
 .leaflet-control-container {
   display: none !important;
+}
+
+.flaw-leaf-map .leaflet-popup-close-button {
+  opacity: 0;
+  z-index: -1;
 }
 
 .l-tooltip {
