@@ -3,6 +3,10 @@
   <div class="flaw-report-form">
     <v-card class="form">
       <v-form ref="form" class="form__inner">
+        <v-alert prominent type="error" class="ma-2" v-if="!isValidForm && submited">
+          Formularz został błędnie wypełniony
+        </v-alert>
+        <h2>Dodaj nowe zgłoszenie</h2>
         <fake-v-select v-model="inputs.person" :options="personOptions" label="Wybierz osobe" target="name" />
         <fake-v-select
           v-model="inputs.damageType"
@@ -16,8 +20,13 @@
           label="Wybierz Element Infrastruktury"
           target="name"
         />
-        <fake-v-date-picker @test="(value) => (inputs.createTime = value)" />
+        <fake-v-date-picker @update="(value) => (inputs.createTime = value)" />
         <v-text-field label="Komentarz" v-model="inputs.comment" />
+        <v-text-field label="Wybierz Lokalizacje GPS" v-model="inputs.gpsLocation" />
+        <v-btn plain class="mr-4 ml-5 button--submit" @click="submit">
+          <v-icon left icon="mdi-handshake-outline"></v-icon>
+          <span> Wyślij zgłoszenie </span>
+        </v-btn>
       </v-form>
     </v-card>
     <div class="map"></div>
@@ -30,6 +39,9 @@ import FakeVSelect from "@/components/atoms/FakeVSelect.vue";
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import FakeVDatePicker from "@/components/atoms/FakeVDatePicker.vue";
+import { Applicationstatus } from "@/businessRules/bussniessRules";
+import router from "@/router";
+
 export default {
   components: { ReportAppBar, FakeVSelect, FakeVDatePicker },
   name: "FlawReportForm",
@@ -39,21 +51,85 @@ export default {
       damageType: "",
       comment: "",
       infrastructureElement: "",
-      createTime: "",
+      createTime: Date(),
+      gpsLocation: "",
     });
 
     const store = useStore();
 
+    const formatedCreateTime = computed(() => {
+      const date = new Date(inputs.value.createTime);
+
+      const formatedDate =
+        ("00" + date.getDate()).slice(-2) +
+        "-" +
+        ("00" + (date.getMonth() + 1)).slice(-2) +
+        "-" +
+        date.getFullYear() +
+        " " +
+        ("00" + date.getHours()).slice(-2) +
+        ":" +
+        ("00" + date.getMinutes()).slice(-2);
+
+      return formatedDate;
+    });
+    const isValidForm = computed(
+      () => inputs.value.person !== "" && inputs.value.createTime !== "" && inputs.value.infrastructureElement !== ""
+    );
+    const submited = ref<null | Boolean>(null);
+    const submit = () => {
+      submited.value = true;
+      if (isValidForm.value) {
+        const report = {
+          person: inputs.value.person,
+          damageType: inputs.value.damageType,
+          comment: inputs.value.comment,
+          infrastructureElement: inputs.value.comment,
+          createTime: formatedCreateTime.value,
+          status: Applicationstatus.Zgloszone,
+          gpsLocation: inputs.value.gpsLocation,
+        };
+
+        store.dispatch("addFlawReport", report).then(() => {
+          submited.value = false;
+          router.push("/zglaszanie/tabela");
+        });
+      } else {
+        console.log(formatedCreateTime.value);
+      }
+    };
     const personOptions = computed(() => store.getters.getUsers);
     const damageOptions = computed(() => store.getters.getDamages);
     const infrastructureElementOptions = computed(() => store.getters.getInfrastructureElements);
-    return { inputs, personOptions, damageOptions, infrastructureElementOptions };
+    return {
+      inputs,
+      personOptions,
+      damageOptions,
+      infrastructureElementOptions,
+      submit,
+      submited,
+      formatedCreateTime,
+      isValidForm,
+    };
   },
 };
 </script>
 
 <style scoped>
-.form__inner div {
+.button--submit {
+  background: #ffebdb;
+  color: #25424c;
+  border: 2px solid #25424c;
+  border-radius: 8px;
+  padding: 20px 40px !important;
+  font-weight: 600;
+  width: calc(100% - 48px);
+  margin-top: 24px;
+  min-height: 52px;
+}
+
+.form__inner div,
+h2 {
   margin: 24px;
 }
 
@@ -62,6 +138,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  height: calc(100% - 64px);
 }
 
 .form,
@@ -77,5 +154,11 @@ export default {
 
 .map {
   flex: 1.5;
+}
+</style>
+
+<style>
+.flaw-report-form .v-input__details {
+  display: none !important;
 }
 </style>

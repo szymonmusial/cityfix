@@ -24,10 +24,12 @@ export type FlawReportsStore = {
   };
   mutations: {
     setFlawReports(state: FlawReportsSate, flawReports: FlawReports): void;
+    addFlawReport(state: FlawReportsSate, flawReports: FlawReport): void;
     editStatusFlawReport(state: FlawReportsSate, { status, id }: { status: string; id: number }): void;
   };
   actions: {
     setFlawReports(context: any): Promise<void>;
     editStatusFlawReport(context: any, { status, id }: { status: string; id: number }): Promise<void>;
+    addFlawReport(context: any, FlawReport: FlawReport): Promise<void>;
   };
 };

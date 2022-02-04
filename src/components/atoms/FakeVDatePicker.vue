@@ -4,7 +4,7 @@
       type="datetime-local"
       id="meeting-time"
       :value="dateToady"
-      @input="(event) => $emit('test', event.target.value)"
+      @input="(event) => $emit('update', event.target.value)"
     />
   </div>
 </template>

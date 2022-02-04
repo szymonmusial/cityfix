@@ -16,6 +16,9 @@ const flawReports: FlawReportsStore = {
       const index = state.flawReports.findIndex((item) => item.id === id);
       state.flawReports[index].status = status;
     },
+    addFlawReport(state, flawReport) {
+      state.flawReports.push(flawReport);
+    },
   },
   actions: {
     setFlawReports(context) {
@@ -31,6 +34,11 @@ const flawReports: FlawReportsStore = {
         .then(() => {
           context.commit("editStatusFlawReport", { status, id });
         });
+    },
+    addFlawReport: (context, flawReport) => {
+      return axiosClient.post("flawReports", flawReport).then((response) => {
+        context.commit("addFlawReport", response.data);
+      });
     },
   },
 };

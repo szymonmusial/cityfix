@@ -63,6 +63,156 @@
       "comment": "Wybuchła Lampa ale oprócz zarówki",
       "lat": 51.29088,
       "lang": 18.15947
+    },
+    {
+      "person": "Kamil Sobień",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "dsd",
+      "infrastructureElement": "dsd",
+      "createTime": "04-02-2022 14:26",
+      "status": "Zakoncz",
+      "gpsLocation": "dsd",
+      "id": 4
+    },
+    {
+      "person": "",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:29",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 5
+    },
+    {
+      "person": "",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:33",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 6
+    },
+    {
+      "person": "",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:33",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 7
+    },
+    {
+      "person": "",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:33",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 8
+    },
+    {
+      "person": "",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:33",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 9
+    },
+    {
+      "person": "",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:33",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 10
+    },
+    {
+      "person": "",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:35",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 11
+    },
+    {
+      "person": "Kamil Sobień",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "sds",
+      "infrastructureElement": "sds",
+      "createTime": "13-03-2022 14:35",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "dsd",
+      "id": 12
+    },
+    {
+      "person": "Kamil Sobień",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "sds",
+      "infrastructureElement": "sds",
+      "createTime": "13-03-2022 14:35",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "dsd",
+      "id": 13
+    },
+    {
+      "person": "Szymon Musiał",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:37",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 14
+    },
+    {
+      "person": "Kamil Sobień",
+      "damageType": "",
+      "comment": "",
+      "infrastructureElement": "",
+      "createTime": "04-02-2022 14:40",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "",
+      "id": 15
+    },
+    {
+      "person": "Kamil Sobień",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "sdsd",
+      "infrastructureElement": "sdsd",
+      "createTime": "04-02-2022 14:41",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "dsdsd",
+      "id": 16
+    },
+    {
+      "person": "Kamil Sobień",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "dsd",
+      "infrastructureElement": "dsd",
+      "createTime": "04-02-2022 14:43",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "dsd",
+      "id": 17
+    },
+    {
+      "person": "Kamil Sobień",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "sd",
+      "infrastructureElement": "sd",
+      "createTime": "04-02-2022 14:43",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "dsd",
+      "id": 18
     }
   ],
   "damageType": [
