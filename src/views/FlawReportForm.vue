@@ -96,15 +96,16 @@ export default {
           status: Applicationstatus.Zgloszone,
           gpsLocation: inputs.value.gpsLocation,
           lat: inputs.value.lat,
-          lng: inputs.value.lng,
+          lang: inputs.value.lng,
         };
 
-        store.dispatch("addFlawReport", report).then(() => {
-          submited.value = false;
-          router.push("/zglaszanie/tabela");
-        });
-      } else {
-        console.log(formatedCreateTime.value);
+        store
+          .dispatch("addFlawReport", report)
+          .then(() => {
+            submited.value = false;
+            router.push("/zglaszanie/tabela");
+          })
+          .catch(() => alert("nie udało się dodać zgłoszenia"));
       }
     };
     const personOptions = computed(() => store.getters.getUsers);

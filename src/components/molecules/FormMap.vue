@@ -1,9 +1,9 @@
 <template>
   <div class="flaw-leaf-map">
-    <l-map v-model:zoom="zoom" :minZoom="10" :maxZoom="18" :center="[51.29488, 18.15547]">
+    <l-map :zoom="startZoom" :minZoom="minZoom" :maxZoom="maxZoom" :center="mapCenter">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></l-tile-layer>
       <l-marker
-        :lat-lng="[51.29488, 18.15547]"
+        :lat-lng="mapCenter"
         :draggable="true"
         class="l-marker"
         :style="PinIconColor"
@@ -17,9 +17,9 @@
 <script lang="ts">
 import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
 import "leaflet/dist/leaflet.css";
-import { ref } from "@vue/reactivity";
 import useLeafMapIcon from "@/composables/LeafMapIcon/leafMapIcon";
 import { LeafMapIcon } from "@/composables/LeafMapIcon/leafMapIconDictionary";
+import { MainMapPlaces, MapZoom } from "@/businessRules/bussniessRules";
 
 export default {
   components: {
@@ -29,10 +29,13 @@ export default {
   },
 
   setup() {
-    const zoom = ref(14);
+    const mapCenter = JSON.parse(MainMapPlaces.center.toString());
     const { createIcon } = useLeafMapIcon();
+    const minZoom = MapZoom.minZoom;
+    const maxZoom = MapZoom.maxZoom;
+    const startZoom = MapZoom.startZoom;
     const createIconPin = () => createIcon(LeafMapIcon.mdiPin, false);
-    return { zoom, createIconPin };
+    return { createIconPin, mapCenter, minZoom, maxZoom, startZoom };
   },
 };
 </script>

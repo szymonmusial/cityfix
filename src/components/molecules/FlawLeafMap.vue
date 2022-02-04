@@ -1,6 +1,6 @@
 <template>
   <div class="flaw-leaf-map">
-    <l-map v-model:zoom="zoom" :minZoom="10" :maxZoom="18" :center="[51.29488, 18.15547]">
+    <l-map :zoom="startZoom" :minZoom="minZoom" :maxZoom="maxZoom" :center="mapCenter">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></l-tile-layer>
       <l-marker
         v-for="item in flawReports"
@@ -35,6 +35,7 @@ import { FlawReports } from "@/store/modules/flawReports/flawReportsType";
 import { PropType } from "@vue/runtime-core";
 import useLeafMapIcon from "@/composables/LeafMapIcon/leafMapIcon";
 import { LeafMapIcon } from "@/composables/LeafMapIcon/leafMapIconDictionary";
+import { MainMapPlaces, MapZoom } from "@/businessRules/bussniessRules";
 
 export default {
   components: {
@@ -49,9 +50,12 @@ export default {
     flawReports: Object as PropType<FlawReports>,
   },
   setup(props, { emit }) {
-    const zoom = ref(14);
     const isOpenPopup = ref(false);
     const { createIcon } = useLeafMapIcon();
+    const mapCenter = JSON.parse(MainMapPlaces.center.toString());
+    const minZoom = MapZoom.minZoom;
+    const maxZoom = MapZoom.maxZoom;
+    const startZoom = MapZoom.startZoom;
     const closePopup = () => {
       isOpenPopup.value = false;
       changeSelectedHoverPin(null);
@@ -68,7 +72,7 @@ export default {
 
     const createIconPin = (text) => createIcon(LeafMapIcon.mdiPin, true, text);
 
-    return { zoom, createIconPin, isOpenPopup, changeSelectedHoverPin, closePopup };
+    return { createIconPin, isOpenPopup, changeSelectedHoverPin, closePopup, mapCenter, minZoom, maxZoom, startZoom };
   },
 };
 </script>

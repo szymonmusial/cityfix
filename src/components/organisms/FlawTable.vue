@@ -44,6 +44,7 @@ import { computed, ref } from "@vue/runtime-core";
 import DropDownSelect from "../atoms/DropDownSelect.vue";
 import TextToColorIcon from "../atoms/TextToColorIcon.vue";
 import { canEditStatus } from "@/infrastructure/permission/usePermission";
+import { Applicationstatus } from "@/businessRules/bussniessRules";
 
 export default {
   components: { DropDownSelect, TextToColorIcon },
@@ -57,8 +58,8 @@ export default {
     const isHoveredItem = (id: number) => props.hoveredItemId == id;
 
     const options = ref([
-      { name: "Odrzuć Zgłoszenie", value: "Odrzuc" },
-      { name: "Zakończ Zgłoszenie", value: "Zakoncz" },
+      { name: "Odrzuć Zgłoszenie", value: Applicationstatus.Odrzucone },
+      { name: "Zakończ Zgłoszenie", value: Applicationstatus.Zakonczone },
     ]);
     return { flawReports, options, updateFlawStatus, isHoveredItem, canEditStatus };
   },

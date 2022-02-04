@@ -18,7 +18,7 @@
   "flawReports": [
     {
       "id": 0,
-      "status": "Zakoncz",
+      "status": "ZAKOŃCZONE",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa Drogowa",
@@ -30,7 +30,7 @@
     },
     {
       "id": 1,
-      "status": "Odrzuc",
+      "status": "ODRZUCONE",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa Uliczna",
@@ -42,7 +42,7 @@
     },
     {
       "id": 2,
-      "status": "Zakoncz",
+      "status": "ODRZUCONE",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa nad Przejściem",
@@ -53,8 +53,7 @@
       "lang": 18.15547
     },
     {
-      "id": 3,
-      "status": "Zakoncz",
+      "status": "ODRZUCONE",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa nad Przejściem",
@@ -62,7 +61,8 @@
       "gpsLocation": "51.2948800° 18.1554700°",
       "comment": "Wybuchła Lampa ale oprócz zarówki",
       "lat": 51.29088,
-      "lang": 18.15947
+      "lang": 18.15947,
+      "id": 3
     },
     {
       "person": "Kamil Sobień",
@@ -70,10 +70,10 @@
       "comment": "Wszystko wybuchło (*_*) ",
       "infrastructureElement": "Lampa nad Przejściem",
       "createTime": "04-02-2022 15:18",
-      "status": "ZGŁOSZONE",
+      "status": "ZAKOŃCZONE",
       "gpsLocation": "51.2952619 18.1521850",
-      "lat": "51.2952619",
-      "lng": "18.1521850",
+      "lat": 51.2952619,
+      "lang": 18.152185,
       "id": 4
     }
   ],
