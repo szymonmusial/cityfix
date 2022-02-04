@@ -29,7 +29,7 @@
         </v-btn>
       </v-form>
     </v-card>
-    <div class="map"></div>
+    <div class="map"><form-map @updateLangLan="updateGps" /></div>
   </div>
 </template>
 <script lang="ts">
@@ -41,9 +41,10 @@ import { computed } from "@vue/runtime-core";
 import FakeVDatePicker from "@/components/atoms/FakeVDatePicker.vue";
 import { Applicationstatus } from "@/businessRules/bussniessRules";
 import router from "@/router";
+import FormMap from "@/components/molecules/FormMap.vue";
 
 export default {
-  components: { ReportAppBar, FakeVSelect, FakeVDatePicker },
+  components: { ReportAppBar, FakeVSelect, FakeVDatePicker, FormMap },
   name: "FlawReportForm",
   setup() {
     const inputs = ref({
@@ -53,10 +54,16 @@ export default {
       infrastructureElement: "",
       createTime: Date(),
       gpsLocation: "",
+      lat: null,
+      lng: null,
     });
 
+    const updateGps = (val) => {
+      inputs.value.lat = val.lat.toString().slice(0, 10);
+      inputs.value.lng = val.lng.toString().slice(0, 10);
+      inputs.value.gpsLocation = inputs.value.lat + " " + inputs.value.lng;
+    };
     const store = useStore();
-
     const formatedCreateTime = computed(() => {
       const date = new Date(inputs.value.createTime);
 
@@ -84,10 +91,12 @@ export default {
           person: inputs.value.person,
           damageType: inputs.value.damageType,
           comment: inputs.value.comment,
-          infrastructureElement: inputs.value.comment,
+          infrastructureElement: inputs.value.infrastructureElement,
           createTime: formatedCreateTime.value,
           status: Applicationstatus.Zgloszone,
           gpsLocation: inputs.value.gpsLocation,
+          lat: inputs.value.lat,
+          lng: inputs.value.lng,
         };
 
         store.dispatch("addFlawReport", report).then(() => {
@@ -110,6 +119,7 @@ export default {
       submited,
       formatedCreateTime,
       isValidForm,
+      updateGps,
     };
   },
 };
