@@ -6,13 +6,14 @@
       >
       <v-spacer></v-spacer>
       <v-divider inset vertical></v-divider>
-
-      <v-btn plain class="mr-4 ml-5 button--call-to-action">
-        <v-icon left icon="mdi-handshake-outline"></v-icon>
-        <span>
-          <router-link :to="cta.path" class="cta__button">{{ cta.name }}</router-link>
-        </span>
-      </v-btn>
+      <router-link :to="cta.path" class="cta__button">
+        <v-btn plain class="mr-4 ml-5 button--call-to-action">
+          <v-icon left icon="mdi-handshake-outline"></v-icon>
+          <span>
+            {{ cta.name }}
+          </span>
+        </v-btn>
+      </router-link>
     </v-app-bar>
   </v-layout>
 </template>
