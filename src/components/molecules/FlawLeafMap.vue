@@ -56,6 +56,8 @@ export default {
       isOpenPopup.value = false;
       changeSelectedHoverPin(null);
       // dont'look at this (*_*)
+
+      // @ts-ignore: Unreachable code error
       document.querySelector(".leaflet-popup-close-button").click();
     };
     const changeSelectedHoverPin = (id: number | null) => {
