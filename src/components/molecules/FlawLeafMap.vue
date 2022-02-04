@@ -1,6 +1,6 @@
 <template>
   <div class="flaw-leaf-map">
-    <l-map v-model="zoom" v-model:zoom="zoom" :minZoom="10" :maxZoom="18" :center="[51.29488, 18.15547]">
+    <l-map v-model:zoom="zoom" :minZoom="10" :maxZoom="18" :center="[51.29488, 18.15547]">
       <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></l-tile-layer>
       <l-marker
         v-for="item in flawReports"

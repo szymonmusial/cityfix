@@ -9,7 +9,9 @@
 
       <v-btn plain class="mr-4 ml-5 button--call-to-action">
         <v-icon left icon="mdi-handshake-outline"></v-icon>
-        <span>Dodaj Zgłoszenie</span>
+        <span>
+          <router-link :to="cta.path" class="cta__button">{{ cta.name }}</router-link>
+        </span>
       </v-btn>
     </v-app-bar>
   </v-layout>
@@ -20,6 +22,7 @@ export default {
   name: "AppBar",
   props: {
     routes: Array,
+    cta: Object,
   },
 };
 </script>
@@ -38,6 +41,11 @@ export default {
   border-radius: 8px;
   padding: 20px 28px !important;
   font-weight: 600;
+}
+
+.cta__button {
+  text-decoration: none;
+  color: #25424c;
 }
 
 .app-bar__nav-item {
