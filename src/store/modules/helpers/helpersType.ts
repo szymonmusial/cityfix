@@ -7,6 +7,7 @@ export type LoadedStatus = {
   users: boolean | null;
   flawReports: boolean | null;
   damages: boolean | null;
+  infrastructureElements: boolean | null;
 };
 
 export type HelperState = {

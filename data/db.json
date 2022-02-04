@@ -74,5 +74,19 @@
       "id": 1,
       "name": "Dezintegracja Fazowa"
     }
+  ],
+  "infrastructureElements": [
+    {
+      "name": "Lampa Drogowa",
+      "id": 1
+    },
+    {
+      "name": "Lampa Uliczna",
+      "id": 2
+    },
+    {
+      "name": "Lampa nad Przejściem",
+      "id": 3
+    }
   ]
 }

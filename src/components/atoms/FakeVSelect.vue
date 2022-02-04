@@ -54,6 +54,10 @@ export default {
 .v-input--disabled input {
   color: #6f6f6f;
 }
+
+.v-fake-select-wrapper {
+  cursor: pointer;
+}
 </style>
 
 <style>

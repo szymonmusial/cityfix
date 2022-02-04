@@ -16,6 +16,7 @@ export default {
     Load.User();
     Load.FlawReports();
     Load.Damage();
+    Load.InfrastructureElements();
   },
 };
 </script>

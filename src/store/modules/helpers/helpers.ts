@@ -7,6 +7,7 @@ const helpers: HelperStore = {
       users: null,
       flawReports: null,
       damages: null,
+      infrastructureElements: null,
     },
   },
   getters: {

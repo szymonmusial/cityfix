@@ -3,6 +3,7 @@ import helpers from "./modules/helpers/helpers";
 import users from "./modules/users/users";
 import flawReports from "./modules/flawReports/flawReports";
 import damage from "./modules/damage/damage";
+import infrastructureElements from "./modules/infrastructureElement/infrastructureElements";
 
 export default createStore({
   state: {},
@@ -14,5 +15,6 @@ export default createStore({
     users,
     flawReports,
     damage,
+    infrastructureElements,
   },
 });
