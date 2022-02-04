@@ -15,6 +15,7 @@ export default {
     // add error hadling and loader/spinner
     Load.User();
     Load.FlawReports();
+    Load.Damage();
   },
 };
 </script>

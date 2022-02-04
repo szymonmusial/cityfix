@@ -3,6 +3,7 @@ export type User = {
   firstName: string;
   surName: string;
   role: string;
+  name: string;
 };
 
 export type Users = Array<User>;

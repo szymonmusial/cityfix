@@ -6,6 +6,7 @@ export type DataStatus = {
 export type LoadedStatus = {
   users: boolean | null;
   flawReports: boolean | null;
+  damages: boolean | null;
 };
 
 export type HelperState = {

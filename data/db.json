@@ -4,13 +4,15 @@
       "id": 0,
       "firstname": "Szymon",
       "surname": "Musiał",
-      "role": "reporting"
+      "role": "reporting",
+      "name": "Szymon Musiał"
     },
     {
       "id": 1,
       "firstname": "Kamil",
       "surname": "Sobień",
-      "role": "service"
+      "role": "service",
+      "name": "Kamil Sobień"
     }
   ],
   "flawReports": [
@@ -61,6 +63,16 @@
       "comment": "Wybuchła Lampa ale oprócz zarówki",
       "lat": 51.29088,
       "lang": 18.15947
+    }
+  ],
+  "damageType": [
+    {
+      "id": 0,
+      "name": "Wybuch"
+    },
+    {
+      "id": 1,
+      "name": "Dezintegracja Fazowa"
     }
   ]
 }

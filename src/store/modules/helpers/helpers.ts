@@ -6,6 +6,7 @@ const helpers: HelperStore = {
     loadedStatus: {
       users: null,
       flawReports: null,
+      damages: null,
     },
   },
   getters: {

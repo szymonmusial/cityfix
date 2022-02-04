@@ -4,30 +4,34 @@
       <v-text-field :label="currentLabel" disabled />
     </div>
     <div class="v-fake-select__dropdown" v-if="isDropDownActive">
-      <div class="v-fake-select__dropdown__item" v-for="item in options" :key="item.id" @click="selectItem(item.value)">
+      <div class="v-fake-select__dropdown__item" v-for="item in options" :key="item.id" @click="selectItem(item)">
         <v-text-field :label="item.name" disabled />
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 export default {
   name: "FakeVSelect",
-  emits: ["selectItem"],
+  emits: ["update:modelValue"],
   props: {
     modelValue: String,
     options: Array,
     label: String,
+    target: {
+      type: String,
+      required: true,
+    },
   },
   setup(props, { emit }) {
     const isDropDownActive = ref(false);
     const selectedItemValue = ref(null);
 
-    const selectItem = (value) => {
-      selectedItemValue.value = value;
+    const selectItem = (item) => {
+      selectedItemValue.value = item[props.target];
       isDropDownActive.value = false;
       emit("update:modelValue", selectedItemValue);
     };
