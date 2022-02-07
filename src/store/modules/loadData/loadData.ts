@@ -33,10 +33,10 @@ const helpers: HelperStore = {
             payload.status = true;
             context.commit("setLoadedStatus", payload);
           })
-          .catch(() => {
+          .catch((e) => {
             payload.status = false;
-            return Promise.reject("error");
-            context.commit("setLoadedStatus", payload);
+            return Promise.reject(e);
+            context.commit("setLoadedStatus", payload); // nie wykona się
           });
       }
     },
