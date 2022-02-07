@@ -3,6 +3,7 @@ import FlawService from "@/views/FlawService.vue";
 import FlawReportMap from "@/views/FlawReportMap.vue";
 import FlawReportTable from "@/views/FlawReportTable.vue";
 import FlawReportForm from "@/views/FlawReportForm.vue";
+import LogIn from "@/views/LogIn.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "FlawService",
     component: FlawService,
+  },
+  {
+    path: "/zaloguj",
+    name: "LogIn",
+    component: LogIn,
   },
 ];
 

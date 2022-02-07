@@ -70,11 +70,23 @@
       "comment": "Wszystko wybuchło (*_*) ",
       "infrastructureElement": "Lampa nad Przejściem",
       "createTime": "04-02-2022 15:18",
-      "status": "ZAKOŃCZONE",
+      "status": "ODRZUCONE",
       "gpsLocation": "51.2952619 18.1521850",
       "lat": 51.2952619,
       "lang": 18.152185,
       "id": 4
+    },
+    {
+      "person": "Szymon Musiał",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "kradzież",
+      "infrastructureElement": "Lampa nad Przejściem",
+      "createTime": "04-02-2022 20:23",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "51.3250980 18.0705009",
+      "lat": "51.3250980",
+      "lang": "18.0705009",
+      "id": 5
     }
   ],
   "damageType": [
@@ -99,6 +111,54 @@
     {
       "name": "Lampa nad Przejściem",
       "id": 3
+    }
+  ],
+  "auth": [
+    {
+      "__v_isShallow": false,
+      "dep": {
+        "w": 0,
+        "n": 0
+      },
+      "__v_isRef": true,
+      "_rawValue": {
+        "login": "dsd",
+        "password": "dsd",
+        "accountType": {
+          "__v_isShallow": false,
+          "dep": {
+            "w": 0,
+            "n": 0
+          },
+          "__v_isRef": true,
+          "_rawValue": "reporting",
+          "_value": "reporting"
+        }
+      },
+      "_value": {
+        "login": "dsd",
+        "password": "dsd",
+        "accountType": "reporting"
+      },
+      "id": 1
+    },
+    {
+      "login": "sd",
+      "password": "dsd",
+      "accountType": "reporting",
+      "id": 2
+    },
+    {
+      "login": "dsd",
+      "password": "sds",
+      "accountType": "reporting",
+      "id": 3
+    },
+    {
+      "login": "dsd",
+      "password": "sds",
+      "accountType": "reporting",
+      "id": 4
     }
   ]
 }
