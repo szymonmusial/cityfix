@@ -35,9 +35,7 @@ const helpers: HelperStore = {
           })
           .catch(() => {
             payload.status = false;
-            return new Promise((resolve, reject) => {
-              reject("error");
-            });
+            return Promise.reject("error");
             context.commit("setLoadedStatus", payload);
           });
       }
