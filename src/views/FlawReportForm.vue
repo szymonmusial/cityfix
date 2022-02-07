@@ -107,7 +107,7 @@ export default {
             submited.value = false;
             router.push("/zglaszanie/tabela");
           })
-          .catch(() => alert("nie udało się dodać zgłoszenia"));
+          .catch(() => ShowToast.Error("Nie Udało się dodać zgłoszenie"));
       }
     };
     const personOptions = computed(() => store.getters.getUsers);

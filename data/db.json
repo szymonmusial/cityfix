@@ -9,8 +9,8 @@
     },
     {
       "id": 1,
-      "firstname": "Kamil",
-      "surname": "Sobień",
+      "firstname": "Kuba",
+      "surname": "Musiał",
       "role": "service",
       "name": "Kuba Musiał"
     }
@@ -18,7 +18,7 @@
   "flawReports": [
     {
       "id": 0,
-      "status": "ZAKOŃCZONE",
+      "status": "ODRZUCONE",
       "createTime": "02-02-2020: 10:30",
       "person": "Szymon Musiał",
       "infrastructureElement": "Lampa Drogowa",
@@ -87,6 +87,18 @@
       "lat": "51.3250980",
       "lang": "18.0705009",
       "id": 5
+    },
+    {
+      "person": "Kuba Musiał",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "sdsd",
+      "infrastructureElement": "Lampa nad Przejściem",
+      "createTime": "07-02-2022 12:01",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "51.2965561 18.1495376",
+      "lat": "51.2965561",
+      "lang": "18.1495376",
+      "id": 6
     }
   ],
   "damageType": [
