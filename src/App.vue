@@ -16,11 +16,12 @@ export default {
   name: "App",
   setup() {
     // add error hadling and loader/spinner
-    Load.User();
-    Load.FlawReports();
-    Load.Damage();
-    Load.InfrastructureElements();
-    ShowToast.Success("DZIAŁA!");
+    Load.User().catch(() => ShowToast.Error("Nie udało się załadować użytkowników"));
+    Load.FlawReports().catch(() => ShowToast.Error("Nie udało się załadować raportów"));
+    Load.Damage().catch(() => ShowToast.Error("Nie udało się załadować możliwych typów uszkodzeń"));
+    Load.InfrastructureElements().catch(() =>
+      ShowToast.Error("Nie udało się załadować możliwych elementów infrastruktury")
+    );
   },
 };
 </script>

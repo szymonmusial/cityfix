@@ -27,7 +27,7 @@ const helpers: HelperStore = {
 
       const loadedStatus: boolean = context.getters.isDataLoaded(payload.name);
       if (!loadedStatus) {
-        context
+        return context
           .dispatch(actionName)
           .then(() => {
             payload.status = true;
@@ -35,6 +35,9 @@ const helpers: HelperStore = {
           })
           .catch(() => {
             payload.status = false;
+            return new Promise((resolve, reject) => {
+              reject("error");
+            });
             context.commit("setLoadedStatus", payload);
           });
       }
