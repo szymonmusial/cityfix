@@ -12,7 +12,7 @@
       "firstname": "Kamil",
       "surname": "Sobień",
       "role": "service",
-      "name": "Kamil Sobień"
+      "name": "Kuba Musiał"
     }
   ],
   "flawReports": [
@@ -65,7 +65,7 @@
       "id": 3
     },
     {
-      "person": "Kamil Sobień",
+      "person": "Kuba Musiał",
       "damageType": "Dezintegracja Fazowa",
       "comment": "Wszystko wybuchło (*_*) ",
       "infrastructureElement": "Lampa nad Przejściem",

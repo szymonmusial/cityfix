@@ -42,6 +42,7 @@ import FakeVDatePicker from "@/components/atoms/FakeVDatePicker.vue";
 import { Applicationstatus } from "@/businessRules/bussniessRules";
 import router from "@/router";
 import FormMap from "@/components/molecules/FormMap.vue";
+import { ShowToast } from "@/composables/TheToast/theToast";
 
 export default {
   components: { ReportAppBar, FakeVSelect, FakeVDatePicker, FormMap },
@@ -102,6 +103,7 @@ export default {
         store
           .dispatch("addFlawReport", report)
           .then(() => {
+            ShowToast.Success("Udało się dodać zgłoszenie");
             submited.value = false;
             router.push("/zglaszanie/tabela");
           })
