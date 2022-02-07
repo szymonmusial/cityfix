@@ -11,6 +11,7 @@ import LogInForm from "../components/atoms/LogInForm.vue";
 import { useStore } from "vuex";
 import { Role } from "@/infrastructure/permission/permissions";
 import router from "@/router";
+import { ShowToast } from "@/composables/TheToast/theToast";
 
 export default {
   name: "SignIn",
@@ -18,16 +19,21 @@ export default {
   setup() {
     const store = useStore();
     const signin = (form) => {
-      store.dispatch("setAuth", form.value);
-      const role = form.value.role;
-      switch (role) {
-        case Role.service:
-          router.push("/obsluga/");
-          break;
-        case Role.reporting:
-          router.push("/zglaszanie/mapa/");
-          break;
-      }
+      store
+        .dispatch("setAuth", form.value)
+        .then(() => {
+          ShowToast.Success("Zostałeś zalogowany");
+          const role = form.value.role;
+          switch (role) {
+            case Role.service:
+              router.push("/obsluga/");
+              break;
+            case Role.reporting:
+              router.push("/zglaszanie/mapa/");
+              break;
+          }
+        })
+        .catch(() => ShowToast.Error("Nie udało się zalogować"));
     };
     return { signin };
   },
