@@ -2,7 +2,7 @@
   <div class="form">
     <v-card class="form__inner">
       <v-card-title>Zaloguj się</v-card-title>
-      <fake-v-select label="Wybierz typ konta" :options="accountType" target="value" v-model="form.accountType" />
+      <fake-v-select label="Wybierz typ konta" :options="role" target="value" v-model="form.role" />
       <v-text-field label="Login" v-model="form.login" />
       <v-text-field label="Hasło" v-model="form.password" type="password" />
       <v-btn plain class="mr-4 ml-5 button--submit" @click="submit">
@@ -13,10 +13,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import FakeVSelect from "@/components/atoms/FakeVSelect.vue";
 import { ref } from "@vue/reactivity";
 import { Role } from "@/infrastructure/permission/permissions";
+import { AuthState } from "@/store/modules/auth/authType";
 
 export default {
   name: "LogInForm",
@@ -25,22 +26,22 @@ export default {
     FakeVSelect,
   },
   setup(props, { emit }) {
-    const accountType = ref([
+    const role = ref([
       { name: "Obsługa", value: Role.service, id: 0 },
       { name: "Zgłaszanie", value: Role.reporting, id: 1 },
     ]);
 
-    const form = ref({
+    const form = ref<AuthState>({
       login: "",
       password: "",
-      accountType: "",
+      role: null,
     });
 
     const submit = () => {
       emit("submit", form);
     };
 
-    return { accountType, form, submit };
+    return { role, form, submit };
   },
 };
 </script>

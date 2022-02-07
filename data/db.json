@@ -237,6 +237,18 @@
       "password": "sd",
       "accountType": "service",
       "id": 17
+    },
+    {
+      "login": "dsd",
+      "password": "dsd",
+      "role": "reporting",
+      "id": 18
+    },
+    {
+      "login": "dsd",
+      "password": "sdsd",
+      "role": "service",
+      "id": 19
     }
   ]
 }

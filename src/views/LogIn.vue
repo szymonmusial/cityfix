@@ -19,7 +19,7 @@ export default {
     const store = useStore();
     const signin = (form) => {
       store.dispatch("setAuth", form.value);
-      const role = form.value.accountType;
+      const role = form.value.role;
       switch (role) {
         case Role.service:
           router.push("/obsluga/");

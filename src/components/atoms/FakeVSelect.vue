@@ -28,9 +28,9 @@ export default {
   },
   setup(props, { emit }) {
     const isDropDownActive = ref(false);
-    const selectedItemValue = ref(null);
+    const selectedItemValue = ref<null | String>(null);
 
-    const selectItem = (item) => {
+    const selectItem = (item: Object) => {
       selectedItemValue.value = item[props.target];
       isDropDownActive.value = false;
       emit("update:modelValue", selectedItemValue);

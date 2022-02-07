@@ -53,12 +53,6 @@ export default {
   bottom: 0;
 }
 
-/*
-.flaw-map--hide {
-  bottom: calc(-60vh + 24px);
-}
-*/
-
 .flaw-map--hide {
   bottom: calc(24px);
   transform: translate(0, +100%);

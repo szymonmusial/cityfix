@@ -52,7 +52,7 @@ export default {
   setup(props, { emit }) {
     const isOpenPopup = ref(false);
     const { createIcon } = useLeafMapIcon();
-    const mapCenter = JSON.parse(MainMapPlaces.center.toString());
+    const mapCenter: Array<number> = JSON.parse(MainMapPlaces.center.toString());
     const minZoom = MapZoom.minZoom;
     const maxZoom = MapZoom.maxZoom;
     const startZoom = MapZoom.startZoom;
@@ -70,7 +70,7 @@ export default {
       }
     };
 
-    const createIconPin = (text) => createIcon(LeafMapIcon.mdiPin, true, text);
+    const createIconPin = (text: string) => createIcon(LeafMapIcon.mdiPin, true, text);
 
     return { createIconPin, isOpenPopup, changeSelectedHoverPin, closePopup, mapCenter, minZoom, maxZoom, startZoom };
   },

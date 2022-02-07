@@ -29,7 +29,9 @@ export default {
   },
 
   setup() {
-    const mapCenter = JSON.parse(MainMapPlaces.center.toString());
+    // to powinno być ref?
+    // czy number[] === Array<number>
+    const mapCenter: Array<number> = JSON.parse(MainMapPlaces.center.toString());
     const { createIcon } = useLeafMapIcon();
     const minZoom = MapZoom.minZoom;
     const maxZoom = MapZoom.maxZoom;

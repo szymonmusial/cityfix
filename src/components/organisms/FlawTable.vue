@@ -44,6 +44,7 @@ import { computed, ref } from "@vue/runtime-core";
 import DropDownSelect from "../atoms/DropDownSelect.vue";
 import TextToColorIcon from "../atoms/TextToColorIcon.vue";
 import { Applicationstatus } from "@/businessRules/bussniessRules";
+import { FlawReports } from "@/store/modules/flawReports/flawReportsType";
 
 export default {
   components: { DropDownSelect, TextToColorIcon },
@@ -51,8 +52,8 @@ export default {
   props: { hoveredItemId: Number },
   setup(props) {
     const store = useStore();
-    const updateFlawStatus = (status, id) => store.dispatch("editStatusFlawReport", { status, id });
-    const flawReports = computed(() => store.getters.getFlawReports);
+    const updateFlawStatus = (status: string, id: number) => store.dispatch("editStatusFlawReport", { status, id });
+    const flawReports = computed((): FlawReports => store.getters.getFlawReports);
 
     const isHoveredItem = (id: number) => props.hoveredItemId == id;
 
