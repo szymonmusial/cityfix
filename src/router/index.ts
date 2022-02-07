@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
     component: FlawReportTable,
   },
   {
-    path: "/",
+    path: "/obsluga",
     name: "FlawService",
     component: FlawService,
   },

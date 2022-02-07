@@ -9,6 +9,8 @@
 import SignInBanner from "../components/atoms/SignInBanner.vue";
 import LogInForm from "../components/atoms/LogInForm.vue";
 import { useStore } from "vuex";
+import { Role } from "@/infrastructure/permission/permissions";
+import router from "@/router";
 
 export default {
   name: "SignIn",
@@ -17,6 +19,15 @@ export default {
     const store = useStore();
     const signin = (form) => {
       store.dispatch("setAuth", form.value);
+      const role = form.value.accountType;
+      switch (role) {
+        case Role.service:
+          router.push("/obsluga/");
+          break;
+        case Role.reporting:
+          router.push("/zglaszanie/mapa/");
+          break;
+      }
     };
     return { signin };
   },

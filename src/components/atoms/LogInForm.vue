@@ -16,6 +16,7 @@
 <script>
 import FakeVSelect from "@/components/atoms/FakeVSelect.vue";
 import { ref } from "@vue/reactivity";
+import { Role } from "@/infrastructure/permission/permissions";
 
 export default {
   name: "LogInForm",
@@ -25,8 +26,8 @@ export default {
   },
   setup(props, { emit }) {
     const accountType = ref([
-      { name: "Obsługa", value: "service", id: 0 },
-      { name: "Zgłaszanie", value: "reporting", id: 1 },
+      { name: "Obsługa", value: Role.service, id: 0 },
+      { name: "Zgłaszanie", value: Role.reporting, id: 1 },
     ]);
 
     const form = ref({
