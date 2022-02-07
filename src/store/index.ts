@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import helpers from "./modules/helpers/helpers";
+import loadData from "./modules/loadData/loadData";
 import users from "./modules/users/users";
 import flawReports from "./modules/flawReports/flawReports";
 import damage from "./modules/damage/damage";
@@ -12,7 +12,7 @@ export default createStore({
   mutations: {},
   actions: {},
   modules: {
-    helpers,
+    loadData,
     users,
     flawReports,
     damage,

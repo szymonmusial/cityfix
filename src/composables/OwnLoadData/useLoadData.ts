@@ -1,4 +1,4 @@
-import { DataType } from "@/store/modules/helpers/helpersDictionary";
+import { DataType } from "@/store/modules/loadData/loadDataDictionary";
 import store from "@/store/";
 
 export const Load = {

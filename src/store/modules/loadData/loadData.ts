@@ -1,5 +1,5 @@
-import { ActionNameToDataType } from "@/store/modules/helpers/helpersDictionary";
-import { DataStatus, HelperStore } from "./helpersType";
+import { ActionNameToDataType } from "@/store/modules/loadData/loadDataDictionary";
+import { DataStatus, HelperStore } from "./loadDataType";
 
 const helpers: HelperStore = {
   state: {
