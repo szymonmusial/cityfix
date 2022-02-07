@@ -6,6 +6,7 @@ import damage from "./modules/damage/damage";
 import infrastructureElements from "./modules/infrastructureElement/infrastructureElements";
 import auth from "./modules/auth/auth";
 import toast from "./modules/toast/toast";
+import loader from "./modules/loader/loader";
 
 export default createStore({
   state: {},
@@ -20,5 +21,6 @@ export default createStore({
     infrastructureElements,
     auth,
     toast,
+    loader,
   },
 });
