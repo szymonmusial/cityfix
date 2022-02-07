@@ -5,6 +5,7 @@ import flawReports from "./modules/flawReports/flawReports";
 import damage from "./modules/damage/damage";
 import infrastructureElements from "./modules/infrastructureElement/infrastructureElements";
 import auth from "./modules/auth/auth";
+import toast from "./modules/toast/toast";
 
 export default createStore({
   state: {},
@@ -18,5 +19,6 @@ export default createStore({
     damage,
     infrastructureElements,
     auth,
+    toast,
   },
 });

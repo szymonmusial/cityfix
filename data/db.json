@@ -249,6 +249,12 @@
       "password": "sdsd",
       "role": "service",
       "id": 19
+    },
+    {
+      "login": "wewe",
+      "password": "wewe",
+      "role": "reporting",
+      "id": 20
     }
   ]
 }
