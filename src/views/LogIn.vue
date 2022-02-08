@@ -19,6 +19,7 @@ export default {
   setup() {
     const store = useStore();
     const signin = (form) => {
+      store.commit("setLoaderStatus", true);
       store
         .dispatch("setAuth", form.value)
         .then(() => {
@@ -32,6 +33,7 @@ export default {
               router.push("/zglaszanie/mapa/");
               break;
           }
+          store.commit("setLoaderStatus", false);
         })
         .catch(() => ShowToast.Error("Nie udało się zalogować"));
     };

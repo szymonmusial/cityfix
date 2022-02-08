@@ -88,6 +88,7 @@ export default {
     const submit = () => {
       submited.value = true;
       if (isValidForm.value) {
+        store.commit("setLoaderStatus", true);
         const report = {
           person: inputs.value.person,
           damageType: inputs.value.damageType,
@@ -107,7 +108,8 @@ export default {
             submited.value = false;
             router.push("/zglaszanie/tabela");
           })
-          .catch(() => ShowToast.Error("Nie Udało się dodać zgłoszenie"));
+          .catch(() => ShowToast.Error("Nie Udało się dodać zgłoszenie"))
+          .finally(() => store.commit("setLoaderStatus", false));
       }
     };
     const personOptions = computed(() => store.getters.getUsers);
