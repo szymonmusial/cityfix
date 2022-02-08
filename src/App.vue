@@ -34,9 +34,7 @@ export default {
         Load.Damage({
           onError: () => ShowToast.Error("Nie udało się załadować typów uszkodzeń"),
         }),
-      ]);
-
-      store.commit("setLoaderStatus", false);
+      ]).finally(() => store.commit("setLoaderStatus", false));
     };
     loadData();
   },
