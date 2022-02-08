@@ -28,17 +28,17 @@ export default {
   },
   setup(props, { emit }) {
     const isDropDownActive = ref(false);
-    const selectedItemValue = ref<null | String>(null);
+    const selectedItemValue = ref<null | Object>(null);
 
     const selectItem = (item: Object) => {
-      selectedItemValue.value = item[props.target];
+      selectedItemValue.value = item;
       isDropDownActive.value = false;
-      emit("update:modelValue", selectedItemValue);
+      emit("update:modelValue", selectedItemValue.value[props.target]);
     };
 
     const currentLabel = computed(() => {
-      if (selectedItemValue.value !== null) {
-        return selectedItemValue.value;
+      if (selectedItemValue.value != null) {
+        return selectedItemValue.value["name"];
       } else {
         return props.label;
       }

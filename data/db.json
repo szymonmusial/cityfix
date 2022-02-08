@@ -99,6 +99,18 @@
       "lat": "51.2965561",
       "lang": "18.1495376",
       "id": 6
+    },
+    {
+      "person": "Kuba Musiał",
+      "damageType": "Dezintegracja Fazowa",
+      "comment": "dsdds",
+      "infrastructureElement": "Lampa nad Przejściem",
+      "createTime": "08-02-2022 10:31",
+      "status": "ZGŁOSZONE",
+      "gpsLocation": "51.3003547 18.1311277",
+      "lat": "51.3003547",
+      "lang": "18.1311277",
+      "id": 7
     }
   ],
   "damageType": [
@@ -285,6 +297,30 @@
       "password": "dsd",
       "role": "reporting",
       "id": 23
+    },
+    {
+      "login": "DSD",
+      "password": "SDSD",
+      "role": "reporting",
+      "id": 24
+    },
+    {
+      "login": "fdf",
+      "password": "dfdfd",
+      "role": "reporting",
+      "id": 25
+    },
+    {
+      "login": "dsd",
+      "password": "sdsd",
+      "role": "service",
+      "id": 26
+    },
+    {
+      "login": "dsd",
+      "password": "sd",
+      "role": "reporting",
+      "id": 27
     }
   ]
 }

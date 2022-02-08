@@ -1,14 +1,16 @@
 <template>
   <div class="form">
     <v-card class="form__inner">
-      <v-card-title>Zaloguj się</v-card-title>
-      <fake-v-select label="Wybierz typ konta" :options="role" target="value" v-model="form.role" />
-      <v-text-field label="Login" v-model="form.login" />
-      <v-text-field label="Hasło" v-model="form.password" type="password" />
-      <v-btn plain class="mr-4 ml-5 button--submit" @click="submit">
-        <v-icon left icon="mdi-handshake-outline"></v-icon>
-        <span> Wyślij zgłoszenie </span>
-      </v-btn>
+      <form>
+        <v-card-title>Zaloguj się</v-card-title>
+        <fake-v-select label="Wybierz typ konta" :options="role" target="value" v-model="form.role" />
+        <v-text-field label="Login" v-model="form.login" />
+        <v-text-field label="Hasło" v-model="form.password" type="password" />
+        <v-btn plain class="mr-4 ml-5 button--submit" @click="submit">
+          <v-icon left icon="mdi-handshake-outline"></v-icon>
+          <span> Wyślij zgłoszenie </span>
+        </v-btn>
+      </form>
     </v-card>
   </div>
 </template>
