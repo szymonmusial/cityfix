@@ -23,12 +23,17 @@ export default {
       store.commit("setLoaderStatus", true);
       await Promise.all([
         Load.User({
-          onError: () => ShowToast.Error("Nie udało się załadować raportów"),
-          onCorrect: () => console.log("działa"),
+          onError: () => ShowToast.Error("Nie udało się załadować użytkowników"),
         }),
-        Load.FlawReports({ onError: () => ShowToast.Error("Nie udało się załadować raportów") }),
-        Load.Damage({ onError: () => ShowToast.Error("Nie udało się załadować raportów") }),
-        Load.InfrastructureElements({ onError: () => ShowToast.Error("Nie udało się załadować raportów") }),
+        Load.FlawReports({
+          onError: () => ShowToast.Error("Nie udało się załadować raportów"),
+        }),
+        Load.InfrastructureElements({
+          onError: () => ShowToast.Error("Nie udało się załadować elementów infrastruktury"),
+        }),
+        Load.Damage({
+          onError: () => ShowToast.Error("Nie udało się załadować typów uszkodzeń"),
+        }),
       ]);
 
       store.commit("setLoaderStatus", false);
