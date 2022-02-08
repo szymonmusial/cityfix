@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .toast {
   position: absolute;
-  z-index: 1000000000;
+  z-index: 10000000000000;
   right: 0;
   margin: 8px;
 }

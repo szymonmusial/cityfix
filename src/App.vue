@@ -22,10 +22,10 @@ export default {
     const loadData = async () => {
       store.commit("setLoaderStatus", true);
       await Promise.all([
-        Load.User(() => ShowToast.Error("Nie udało się załadować raportów")),
-        Load.FlawReports(() => ShowToast.Error("Nie udało się załadować raportów")),
-        Load.Damage(() => ShowToast.Error("Nie udało się załadować raportów")),
-        Load.InfrastructureElements(() => ShowToast.Error("Nie udało się załadować raportów")),
+        Load.User({ onError: () => ShowToast.Error("Nie udało się załadować raportów") }),
+        Load.FlawReports({ onError: () => ShowToast.Error("Nie udało się załadować raportów") }),
+        Load.Damage({ onError: () => ShowToast.Error("Nie udało się załadować raportów") }),
+        Load.InfrastructureElements({ onError: () => ShowToast.Error("Nie udało się załadować raportów") }),
       ]);
 
       store.commit("setLoaderStatus", false);
