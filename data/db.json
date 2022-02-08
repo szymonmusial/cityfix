@@ -351,6 +351,12 @@
       "password": "sdsd",
       "role": "reporting",
       "id": 28
+    },
+    {
+      "login": "sds",
+      "password": "dsd",
+      "role": "service",
+      "id": 29
     }
   ]
 }

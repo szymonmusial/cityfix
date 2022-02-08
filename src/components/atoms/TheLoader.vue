@@ -27,7 +27,7 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 100000000;
+  z-index: 100000000000;
   display: flex;
   justify-content: center;
   align-items: center;
